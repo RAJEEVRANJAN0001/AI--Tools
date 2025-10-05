@@ -1,17 +1,10 @@
 {
+  "version": 2,
   "framework": "nextjs",
   "name": "my-nextjs-dev",
   "buildCommand": "next build",
-  "devCommand": "next dev",
-  "outputDirectory": ".next",
   "env": {
-    "NODE_ENV": "development"
+    "NODE_ENV": "production"
   },
-  "regions": ["iad1"],
-  "functions": {
-    "api/**/*.js": {
-      "maxDuration": 10,
-      "memory": 128
-    }
-  }
+  "regions": ["iad1"]
 }

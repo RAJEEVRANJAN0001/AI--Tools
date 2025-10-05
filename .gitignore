@@ -39,6 +39,7 @@ Desktop.ini
 next-env.d.ts
 
 .vercel
+.vercel/*
 .netlify
 
 coverage/
