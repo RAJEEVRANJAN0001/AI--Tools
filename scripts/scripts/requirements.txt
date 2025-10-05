@@ -1,0 +1,11 @@
+# AI Tools Updater Requirements
+# Install with: pip install -r requirements.txt
+
+# Core dependencies
+python-dotenv>=1.0.0
+google-generativeai>=0.3.0
+requests>=2.31.0
+
+# Optional but recommended
+colorama>=0.4.6  # For colored console output
+tqdm>=4.66.0     # For progress bars
