@@ -13,9 +13,9 @@ export default function DashboardPage() {
 
   // Group tools by category for analytics
   const toolsByCategory = categories.map(category => ({
-    name: category,
-    count: allTools.filter(tool => tool.category === category).length,
-    tools: allTools.filter(tool => tool.category === category).slice(0, 3)
+    name: category.name,
+    count: category.count,
+    tools: allTools.filter(tool => tool.category === category.name).slice(0, 3)
   })).sort((a, b) => b.count - a.count)
 
   // Get category icon

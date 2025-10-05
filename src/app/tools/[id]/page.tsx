@@ -3,13 +3,14 @@ import ToolDetailPage from '@/components/ToolDetailPage'
 import { notFound } from 'next/navigation'
 
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
-export default function ToolPage({ params }: PageProps) {
-  const tool = webDevTools.find(t => t.id === params.id)
+export default async function ToolPage({ params }: PageProps) {
+  const { id } = await params
+  const tool = webDevTools.find(t => t.id === id)
 
   if (!tool) {
     notFound()
@@ -27,7 +28,8 @@ export async function generateStaticParams() {
 
 // Generate metadata for each tool page
 export async function generateMetadata({ params }: PageProps) {
-  const tool = webDevTools.find(t => t.id === params.id)
+  const { id } = await params
+  const tool = webDevTools.find(t => t.id === id)
 
   if (!tool) {
     return {

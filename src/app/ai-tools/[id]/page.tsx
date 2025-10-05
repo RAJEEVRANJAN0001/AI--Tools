@@ -4,12 +4,13 @@ import AIToolDetailPage from '@/components/AIToolDetailPage'
 import { aiToolsData } from '@/data/aiToolsData'
 
 type Props = {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const tool = aiToolsData.find(t => t.id === params.id)
+  const { id } = await params
+  const tool = aiToolsData.find(t => t.id === id)
   
   if (!tool) {
     return {
@@ -42,8 +43,9 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function AIToolPage({ params }: Props) {
-  const tool = aiToolsData.find(t => t.id === params.id)
+export default async function AIToolPage({ params }: Props) {
+  const { id } = await params
+  const tool = aiToolsData.find(t => t.id === id)
   
   if (!tool) {
     notFound()

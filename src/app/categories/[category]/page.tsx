@@ -3,9 +3,9 @@ import CategoryPage from '@/components/CategoryPage'
 import { getCategoryInfo, getToolsByCategory, categories } from '@/data/categoryData'
 
 interface CategoryPageParams {
-  params: {
+  params: Promise<{
     category: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {
@@ -15,7 +15,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: CategoryPageParams) {
-  const categoryInfo = getCategoryInfo(params.category)
+  const { category } = await params
+  const categoryInfo = getCategoryInfo(category)
   
   if (!categoryInfo) {
     return {
@@ -42,8 +43,9 @@ export async function generateMetadata({ params }: CategoryPageParams) {
   }
 }
 
-export default function CategoryPageRoute({ params }: CategoryPageParams) {
-  const categoryInfo = getCategoryInfo(params.category)
+export default async function CategoryPageRoute({ params }: CategoryPageParams) {
+  const { category } = await params
+  const categoryInfo = getCategoryInfo(category)
   
   if (!categoryInfo) {
     notFound()

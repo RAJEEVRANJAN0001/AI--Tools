@@ -24,7 +24,8 @@ export default function AIToolsDirectory() {
   const [showFilters, setShowFilters] = useState(false)
 
   const tools = getAllTools()
-  const categories = ['All', ...getAllCategories()]
+  const categoryData = getAllCategories()
+  const categories = ['All', ...categoryData.map(cat => cat.name)]
 
   const filteredAndSortedTools = useMemo(() => {
     let filtered = tools

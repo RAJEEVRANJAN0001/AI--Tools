@@ -38,7 +38,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Category pages
     const categoryPages: MetadataRoute.Sitemap = categories.map((category) => ({
-      url: `${baseUrl}/categories/${category.toLowerCase().replace(/\s+/g, '-')}`,
+      url: `${baseUrl}/categories/${category.name.toLowerCase().replace(/\s+/g, '-')}`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.7,
