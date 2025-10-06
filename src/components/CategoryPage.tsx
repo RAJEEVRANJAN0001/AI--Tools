@@ -27,6 +27,7 @@ import {
 import { AITool, AIToolFilter } from '@/types/aiTools'
 import { CategoryInfo } from '@/data/categoryData'
 import { formatDate } from '@/utils/dateFormatter'
+import BackButton from '@/components/BackButton'
 
 interface CategoryPageProps {
   category: CategoryInfo
@@ -72,16 +73,12 @@ export default function CategoryPage({ category, tools }: CategoryPageProps) {
         case 'name':
           return order * a.name.localeCompare(b.name)
         case 'popularity':
-          // Use userCount for popularity sorting
-          const aUsers = parseInt(a.userCount.replace(/[^\d]/g, '')) || 0
-          const bUsers = parseInt(b.userCount.replace(/[^\d]/g, '')) || 0
-          return order * (aUsers - bUsers)
+          // Use trending score for popularity sorting
+          const aTrending = a.popularity?.trendingScore || 0
+          const bTrending = b.popularity?.trendingScore || 0
+          return order * (aTrending - bTrending)
         case 'lastUpdated':
           return order * (new Date(a.lastUpdated).getTime() - new Date(b.lastUpdated).getTime())
-        case 'userCount':
-          const aCount = parseInt(a.userCount.replace(/[^\d]/g, '')) || 0
-          const bCount = parseInt(b.userCount.replace(/[^\d]/g, '')) || 0
-          return order * (aCount - bCount)
         default:
           return 0
       }
@@ -112,13 +109,11 @@ export default function CategoryPage({ category, tools }: CategoryPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Navigation */}
           <div className="mb-8">
-            <Link 
-              href="/" 
-              className="inline-flex items-center gap-2 text-primary-600 dark:text-primary-dark-400 hover:text-primary-700 dark:hover:text-primary-dark-300 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Categories
-            </Link>
+            <BackButton 
+              customPath="/categories" 
+              label="Back to Categories" 
+              className="bg-white dark:bg-dark-800 border-primary-200 dark:border-primary-dark-600 text-primary-600 dark:text-primary-dark-400 hover:bg-primary-50 dark:hover:bg-primary-dark-800"
+            />
           </div>
 
           {/* Category Header */}
@@ -139,7 +134,7 @@ export default function CategoryPage({ category, tools }: CategoryPageProps) {
               {/* Quick Stats */}
               <div className="flex flex-wrap gap-6">
                 <div className="flex items-center gap-2 bg-white dark:bg-dark-800 px-4 py-2 rounded-lg shadow-sm">
-                  <Users className="w-5 h-5 text-primary-600 dark:text-primary-dark-400" />
+                  <Grid className="w-5 h-5 text-primary-600 dark:text-primary-dark-400" />
                   <span className="text-sm font-medium text-neutral-900 dark:text-dark-50">
                     {category.toolCount} Tools
                   </span>
@@ -254,14 +249,9 @@ export default function CategoryPage({ category, tools }: CategoryPageProps) {
                       <div key={index} className="border-b border-neutral-200 dark:border-dark-600 last:border-0 pb-4 last:pb-0">
                         <div className="flex items-center justify-between mb-2">
                           <h4 className="font-semibold text-neutral-900 dark:text-dark-50">{tool.name}</h4>
-                          <div className="flex items-center gap-1">
-                            <Users className="w-4 h-4 text-primary-500" />
-                            <span className="text-sm font-medium">{tool.users}</span>
-                          </div>
                         </div>
                         <p className="text-sm text-neutral-600 dark:text-dark-400 mb-2">{tool.description}</p>
                         <div className="flex items-center justify-between text-xs">
-                          <span className="text-neutral-500 dark:text-dark-400">{tool.users} users</span>
                           <span className="font-medium text-primary-600 dark:text-primary-dark-400">{tool.pricing}</span>
                         </div>
                       </div>
@@ -365,10 +355,6 @@ export default function CategoryPage({ category, tools }: CategoryPageProps) {
                           </h3>
                           <p className="text-sm text-neutral-500 dark:text-dark-400">{tool.company}</p>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <Users className="w-4 h-4 text-primary-500" />
-                          <span className="text-sm font-medium">{tool.userCount}</span>
-                        </div>
                       </div>
 
                       <p className="text-sm text-neutral-600 dark:text-dark-300 mb-4 line-clamp-3">
@@ -376,10 +362,6 @@ export default function CategoryPage({ category, tools }: CategoryPageProps) {
                       </p>
 
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-1">
-                          <Users className="w-4 h-4 text-primary-500" />
-                          <span className="text-sm font-medium">{tool.userCount}</span>
-                        </div>
                         <span className="text-sm font-medium text-primary-600 dark:text-primary-dark-400">{tool.pricing}</span>
                       </div>
                     </div>
@@ -398,17 +380,9 @@ export default function CategoryPage({ category, tools }: CategoryPageProps) {
                               {tool.name}
                             </h3>
                             <span className="text-sm text-neutral-500 dark:text-dark-400">{tool.company}</span>
-                            <div className="flex items-center gap-1">
-                              <Users className="w-4 h-4 text-primary-500" />
-                              <span className="text-sm font-medium">{tool.userCount}</span>
-                            </div>
                           </div>
                           <p className="text-sm text-neutral-600 dark:text-dark-300 mb-2">{tool.description}</p>
                           <div className="flex items-center gap-4 text-sm text-neutral-500 dark:text-dark-400">
-                            <div className="flex items-center gap-1">
-                              <Users className="w-4 h-4 text-primary-500" />
-                              <span>{tool.userCount}</span>
-                            </div>
                             <span className="font-medium text-primary-600 dark:text-primary-dark-400">{tool.pricing}</span>
                           </div>
                         </div>

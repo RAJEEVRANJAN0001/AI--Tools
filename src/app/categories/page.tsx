@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowLeft, TrendingUp, Users, ExternalLink } from 'lucide-react'
+import { ArrowLeft, TrendingUp, ExternalLink } from 'lucide-react'
 import { getAllCategories } from '@/data/categoryData'
 
 export const metadata = {
@@ -45,7 +45,7 @@ export default function CategoriesPage() {
                 <span>{categories.length} categories</span>
               </div>
               <div className="flex items-center gap-2">
-                <Users className="w-5 h-5" />
+                <TrendingUp className="w-5 h-5" />
                 <span>{categories.reduce((sum, cat) => sum + cat.toolCount, 0)} tools total</span>
               </div>
             </div>

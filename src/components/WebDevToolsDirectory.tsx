@@ -11,7 +11,6 @@ import {
   Github, 
   TrendingUp,
   Calendar,
-  Users,
   ChevronDown,
   Grid,
   List
@@ -546,13 +545,6 @@ function ToolListItem({ tool }: { tool: WebDevTool }) {
           <div className="text-right space-y-2">
             {tool.popularity && (
               <>
-                <div className="text-sm">
-                  <div className="text-neutral-500 dark:text-dark-500">Trending Score</div>
-                  <div className="font-bold text-primary-600 dark:text-primary-dark-400">
-                    {tool.popularity.trendingScore}/100
-                  </div>
-                </div>
-                
                 <div className="flex items-center gap-4 text-sm text-neutral-600 dark:text-dark-400">
                   {tool.popularity.githubStars && (
                     <div className="flex items-center gap-1">

@@ -71,10 +71,10 @@ export default function Statistics() {
     },
     {
       id: '4',
-      label: 'Updates',
-      value: 'Daily',
-      icon: TrendingUp,
-      color: 'green',
+      label: 'Last Update',
+      value: 'Today',
+      icon: Clock,
+      color: 'orange',
       isLive: true
     }
   ]

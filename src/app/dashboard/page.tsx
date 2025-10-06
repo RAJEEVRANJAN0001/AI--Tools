@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { BarChart3, TrendingUp, Users, Star, ExternalLink, ArrowRight, Globe, Code, Palette, Bot } from 'lucide-react'
 import { getAllTools, getAllCategories, getFeaturedTools, getToolsStats } from '@/utils/toolsConsolidator'
+import BackButton from '@/components/BackButton'
 
 export default function DashboardPage() {
   const allTools = getAllTools()
@@ -31,9 +32,16 @@ export default function DashboardPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            AI Tools Dashboard
-          </h1>
+          <div className="flex items-center justify-between mb-4">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+              AI Tools Dashboard
+            </h1>
+            <BackButton 
+              customPath="/" 
+              label="Back to Home" 
+              className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-600"
+            />
+          </div>
           <p className="text-xl text-gray-600 dark:text-gray-400">
             Comprehensive overview of all AI tools and platforms in our directory
           </p>
@@ -80,7 +88,7 @@ export default function DashboardPage() {
           <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center">
-                <Users className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+                <Star className="w-6 h-6 text-orange-600 dark:text-orange-400" />
               </div>
               <div>
                 <p className="text-sm text-gray-600 dark:text-gray-400">Free Tools</p>
@@ -120,10 +128,6 @@ export default function DashboardPage() {
                       {tool.name}
                     </h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">{tool.company}</p>
-                    <div className="flex items-center gap-1 mt-1">
-                      <Users className="w-3 h-3 text-blue-400" />
-                      <span className="text-xs text-gray-600 dark:text-gray-400">{tool.userCount}</span>
-                    </div>
                   </div>
                 </div>
               </Link>

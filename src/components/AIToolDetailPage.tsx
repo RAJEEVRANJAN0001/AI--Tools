@@ -19,7 +19,6 @@ import {
   Star, 
   ExternalLink, 
   Globe, 
-  Users, 
   Calendar,
   TrendingUp,
   Download,
@@ -67,6 +66,7 @@ import {
   Search
 } from 'lucide-react'
 import Link from 'next/link'
+import BackButton from '@/components/BackButton'
 
 // Dynamic imports for performance
 const LoadingSpinner = () => (
@@ -276,19 +276,18 @@ export default function AIToolDetailPage({ tool, relatedTools = [] }: AIToolDeta
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            {/* Enhanced Breadcrumb with Schema */}
-            <nav className="flex items-center gap-2 text-sm text-primary-200 dark:text-primary-dark-200 mb-6" aria-label="Breadcrumb">
-              <Link 
-                href="/ai-tools" 
-                className="hover:text-white transition-colors flex items-center gap-1 group"
-                aria-label="Back to AI Tools directory"
-              >
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                AI Tools
-              </Link>
-              <ChevronRight className="w-4 h-4" aria-hidden="true" />
-              <span className="text-white font-medium">{tool.name}</span>
-            </nav>
+            {/* Enhanced Navigation with Back Button */}
+            <div className="flex items-center justify-between mb-6">
+              <nav className="flex items-center gap-2 text-sm text-primary-200 dark:text-primary-dark-200" aria-label="Breadcrumb">
+                <BackButton 
+                  customPath="/ai-tools" 
+                  label="AI Tools" 
+                  className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 hover:text-white"
+                />
+                <ChevronRight className="w-4 h-4 text-primary-200" aria-hidden="true" />
+                <span className="text-white font-medium">{tool.name}</span>
+              </nav>
+            </div>
 
             <div className="flex flex-col lg:flex-row gap-8 items-start">
               {/* Enhanced Tool Info */}
@@ -366,21 +365,7 @@ export default function AIToolDetailPage({ tool, relatedTools = [] }: AIToolDeta
                 </div>
 
                 {/* Enhanced Quick Stats Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10 hover:bg-white/15 transition-colors">
-                    <div className="flex items-center justify-center mb-2">
-                      <Users className="w-5 h-5" />
-                    </div>
-                    <div className="text-2xl font-bold">{formatNumber(parseInt(tool.userCount.replace(/[^\d]/g, '')) || 0)}</div>
-                    <div className="text-sm text-primary-200 dark:text-primary-dark-200">Users</div>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10 hover:bg-white/15 transition-colors">
-                    <div className="flex items-center justify-center mb-2">
-                      <TrendingUp className="w-5 h-5" />
-                    </div>
-                    <div className="text-2xl font-bold">{tool.popularity?.trendingScore || 'N/A'}</div>
-                    <div className="text-sm text-primary-200 dark:text-primary-dark-200">Trending Score</div>
-                  </div>
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10 hover:bg-white/15 transition-colors">
                     <div className="flex items-center justify-center mb-2">
                       <Calendar className="w-5 h-5" />

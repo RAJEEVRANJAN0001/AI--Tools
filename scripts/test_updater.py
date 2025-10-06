@@ -75,7 +75,7 @@ def test_gemini_api():
         
         # Configure and test API
         genai.configure(api_key=api_key)
-        model = genai.GenerativeModel('gemini-pro')
+        model = genai.GenerativeModel('gemini-2.5-flash')  # Use available model
         
         # Simple test prompt
         response = model.generate_content("Hello! Please respond with 'API test successful'")

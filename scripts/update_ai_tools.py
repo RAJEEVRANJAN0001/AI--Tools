@@ -39,12 +39,12 @@ class Config:
     """Configuration settings for the AI tools updater"""
     
     # File paths
-    PROJECT_ROOT = Path(__file__).parent
+    PROJECT_ROOT = Path(__file__).parent.parent  # Go up one level to project root
     ENV_FILE = PROJECT_ROOT / '.env.local'
     DATA_DIR = PROJECT_ROOT / 'src' / 'data'
     OUTPUT_FILE = DATA_DIR / 'aiToolsData_updated.json'
-    BACKUP_DIR = PROJECT_ROOT / 'backups'
-    LOG_FILE = PROJECT_ROOT / 'logs' / 'ai_tools_update.log'
+    BACKUP_DIR = PROJECT_ROOT / 'scripts' / 'backups'
+    LOG_FILE = PROJECT_ROOT / 'scripts' / 'logs' / 'ai_tools_update.log'
     
     # API settings
     REQUEST_TIMEOUT = 30
@@ -115,7 +115,7 @@ class AIToolsUpdater:
         """Initialize Gemini API client"""
         try:
             genai.configure(api_key=self.gemini_api_key)
-            self.model = genai.GenerativeModel('gemini-pro')
+            self.model = genai.GenerativeModel('gemini-2.5-flash')
             self.logger.info("Gemini API initialized successfully")
         except Exception as e:
             self.logger.error(f"Failed to initialize Gemini API: {e}")

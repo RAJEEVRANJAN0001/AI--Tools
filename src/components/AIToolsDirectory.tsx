@@ -6,7 +6,6 @@ import {
   Search, 
   Filter, 
   Star, 
-  Users, 
   TrendingUp, 
   Clock,
   Grid,
@@ -15,6 +14,7 @@ import {
   ExternalLink
 } from 'lucide-react'
 import { getAllTools, getAllCategories } from '@/utils/toolsConsolidator'
+import BackButton from '@/components/BackButton'
 
 export default function AIToolsDirectory() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -65,6 +65,18 @@ export default function AIToolsDirectory() {
 
   return (
     <div className="space-y-8">
+      {/* Navigation */}
+      <div className="flex items-center justify-between">
+        <BackButton 
+          customPath="/" 
+          label="Back to Home" 
+          className="bg-white dark:bg-dark-800 border-gray-200 dark:border-dark-600"
+        />
+        <p className="text-neutral-600 dark:text-dark-400 text-sm">
+          {filteredAndSortedTools.length} tools found
+        </p>
+      </div>
+
       {/* Search and Filters */}
       <div className="bg-white dark:bg-dark-800 rounded-xl shadow-lg p-6">
         {/* Search Bar */}
@@ -213,10 +225,6 @@ function ToolCard({ tool }: { tool: any }) {
         <div className="px-6 pb-4">
           <div className="flex items-center gap-4 text-sm text-neutral-600 dark:text-dark-400">
             <div className="flex items-center gap-1">
-              <Users className="w-4 h-4" />
-              <span>{tool.userCount || 'N/A'}</span>
-            </div>
-            <div className="flex items-center gap-1">
               <Clock className="w-4 h-4" />
               <span>{tool.pricing}</span>
             </div>
@@ -268,10 +276,6 @@ function ToolListItem({ tool }: { tool: any }) {
             </p>
             
             <div className="flex items-center gap-6 text-sm text-neutral-600 dark:text-dark-400">
-              <div className="flex items-center gap-1">
-                <Users className="w-4 h-4" />
-                <span>{tool.userCount || 'N/A'}</span>
-              </div>
               <div className="flex items-center gap-1">
                 <Clock className="w-4 h-4" />
                 <span>{tool.pricing}</span>

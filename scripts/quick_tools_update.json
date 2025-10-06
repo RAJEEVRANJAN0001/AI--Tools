@@ -1,0 +1,74 @@
+{
+  "lastUpdated": "2025-10-06T00:47:25.606723",
+  "totalTools": 4,
+  "tools": [
+    {
+      "name": "GPT-4 Turbo",
+      "company": "OpenAI",
+      "description": "OpenAI's most capable and cost-effective model in the GPT-4 series, offering a 128K context window, an updated knowledge cutoff (up to December 2023 for its latest iterations as of early 2024), and enhanced performance with lower pricing compared to original GPT-4 models. It is optimized for high-volume, complex tasks.",
+      "pricing": "Input: $0.01 / 1K tokens; Output: $0.03 / 1K tokens (API pricing as of early 2024. This is subject to change by October 2025).",
+      "status": "Generally Available via OpenAI API and for ChatGPT Plus/Teams/Enterprise users. Its specific version/iteration may evolve by October 2025.",
+      "keyFeatures": [
+        "128k context window",
+        "Knowledge cutoff up to December 2023 (as of latest announcements in early 2024)",
+        "Improved function calling",
+        "JSON mode",
+        "Reproducible outputs (via seed parameter)",
+        "Vision capabilities (for specific versions like `gpt-4-turbo-with-vision`)",
+        "Lower cost and higher rate limits compared to GPT-4"
+      ],
+      "website": "https://openai.com/gpt-4-turbo",
+      "lastUpdated": "Information provided is based on my knowledge up to early 2024, and therefore cannot be accurate as of 2025-10-06."
+    },
+    {
+      "name": "Gemini Pro",
+      "company": "Google",
+      "description": "Google's mid-tier multimodal large language model, offering advanced capabilities for various tasks including text generation, summarization, coding, and understanding different data types. It balances performance with efficiency for a wide range of applications.",
+      "pricing": "Information for October 2025 is speculative and subject to change. Current pricing (as of mid-2024) is typically usage-based, often billed per 1,000 characters (tokens) for input and output, with variations for different modalities. Refer to Google Cloud AI documentation for the most up-to-date pricing closer to the date.",
+      "status": "Currently generally available via Google Cloud's Vertex AI. For October 2025, it is expected to be actively maintained, with continuous improvements and potential new version releases, but specific updates for that date are speculative. Refer to Google's official announcements.",
+      "keyFeatures": [
+        "Multimodality (text, images, audio, video understanding)",
+        "Advanced reasoning and problem-solving capabilities",
+        "High-quality code generation, completion, and explanation",
+        "Scalable for enterprise applications through Google Cloud's Vertex AI",
+        "Extensive context window for complex prompts",
+        "API access for seamless integration into custom applications",
+        "Support for a broad range of human languages"
+      ],
+      "website": "https://ai.google.dev/gemini",
+      "lastUpdated": "2024-06-05",
+      "note": "This information is based on current knowledge and reasonable expectations. As an AI, I cannot predict exact future product details, pricing, or status for October 2025. Please consult Google's official announcements and documentation closer to the specified date for precise and up-to-date information."
+    },
+    {
+      "name": "DeepSeek V3",
+      "company": "DeepSeek (\u6df1\u601d)",
+      "description": "DeepSeek V3 is anticipated to be the next generation large language model from DeepSeek, building upon the innovations of DeepSeek-V2. It is expected to further advance capabilities in areas such as reasoning, coding, multilingual support, and general intelligence, potentially featuring more efficient architectures (like the Mixture-of-Experts architecture used in V2) and improved performance-to-cost ratios.",
+      "pricing": "Pricing for V3 is not yet available. DeepSeek's current models (like DeepSeek-V2) typically offer competitive token-based pricing, often with tiered structures for different model sizes or usage volumes. It is expected V3 would follow a similar consumption-based model.",
+      "status": "Anticipated future release. As of May 2024, DeepSeek-V2 has been announced. V3 would be a subsequent iteration, likely in active development or conceptualization.",
+      "keyFeatures": [
+        "Enhanced reasoning and problem-solving abilities",
+        "Improved coding proficiency across multiple languages",
+        "Advanced multimodal capabilities (potentially integrating vision, audio)",
+        "Greater efficiency and cost-effectiveness compared to previous versions",
+        "Expanded context window and higher throughput",
+        "Stronger multilingual generation and understanding"
+      ],
+      "website": "https://www.deepseek.com/",
+      "lastUpdated": "2024-05-15"
+    },
+    {
+      "name": "Minimax Voice-01",
+      "company": "Information Not Available (Product not found in current data)",
+      "description": "Information Not Available (As of my last update, Minimax Voice-01 is not a widely recognized or publicly detailed product. Providing future information for October 2025 is speculative.)",
+      "pricing": "Information Not Available (Cannot predict future pricing or existence)",
+      "status": "Unknown (Cannot provide status for a future date or unidentifiable product)",
+      "keyFeatures": [
+        "Information Not Available",
+        "No publicly available details",
+        "Future product status cannot be determined"
+      ],
+      "website": "N/A (No official website identified for this product as of current data)",
+      "lastUpdated": "2023-10-26"
+    }
+  ]
+}

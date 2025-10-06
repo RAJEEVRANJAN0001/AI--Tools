@@ -9,7 +9,6 @@ import {
   Star, 
   Download, 
   Calendar, 
-  Users, 
   Code2,
   BookOpen,
   Lightbulb,
@@ -180,13 +179,6 @@ export default function ToolDetailPage({ tool }: ToolDetailPageProps) {
                 <div className="text-sm text-neutral-600 dark:text-dark-400">Job Listings</div>
               </div>
             )}
-            
-            <div className="text-center">
-              <div className="text-2xl font-bold text-neutral-900 dark:text-dark-50">
-                {tool.popularity.trendingScore}/100
-              </div>
-              <div className="text-sm text-neutral-600 dark:text-dark-400">Trending Score</div>
-            </div>
           </div>
         </div>
       )}
