@@ -5,7 +5,7 @@ A comprehensive informational web application that serves as a centralized direc
 ## 🚀 Features
 
 ### Core Functionality
-- **Comprehensive Database**: 500+ AI tools across 25+ categories
+- **Comprehensive Database**: 45+ AI tools across 25+ categories
 - **Advanced Search**: Multi-parameter search with intelligent filtering
 - **Smart Comparisons**: Side-by-side tool comparison with detailed metrics
 - **Category Organization**: Tools organized by LLMs, Code Gen, Design, Agents, etc.
